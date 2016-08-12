@@ -2,11 +2,12 @@ import { Component } from 'angular2/core';
 import { MealComponent } from './meal.component';
 import { Meal } from './meal.model';
 import { CaloriesPipe } from './calories.pipe';
+import { EditMealComponent } from './edit-meal.component';
 
 @Component({
   selector: 'meal-list',
   inputs: ['mealList'],
-  directives: [MealComponent],
+  directives: [MealComponent, EditMealComponent],
   pipes: [CaloriesPipe],
   template: `
     <div class="">
@@ -19,6 +20,7 @@ import { CaloriesPipe } from './calories.pipe';
         [meal]="currentMeal" (click)="mealClicked(currentMeal)"
         [class.selected]="currentMeal === selectedMeal">
       </meal-display>
+      <edit-meal *ngIf="selectedMeal" [meal]="selectedMeal"></edit-meal>
     </div>
   `
 })
