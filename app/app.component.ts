@@ -19,10 +19,10 @@ export class AppComponent {
 
   constructor() {
     this.meals = [
-      new Meal('breakfast', 'Subway', '300', 0),
-      new Meal('lunch', 'McDonald', '400', 1),
-      new Meal('dinner', 'KFC', '600', 2),
-      new Meal('supper', 'BurgerKing', '700', 3),
+      new Meal('breakfast', 'Subway', 300, 0),
+      new Meal('lunch', 'McDonald', 400, 1),
+      new Meal('dinner', 'KFC', 600, 2),
+      new Meal('supper', 'BurgerKing', 700, 3),
     ]
   }
 }
