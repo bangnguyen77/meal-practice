@@ -9,12 +9,18 @@ import { Meal } from './meal.model';
   template: `
     <div class="">
       <meal-display *ngFor="#currentMeal of mealList"
-        [meal]="currentMeal">
+        [meal]="currentMeal" (click)="mealClicked(currentMeal)"
+        [class.selected]="currentMeal === selectedMeal">
       </meal-display>
     </div>
   `
 })
 
 export class MealListComponent {
+  public mealList: Meal[];
+  public selectedMeal: Meal;
 
+  mealClicked(clickedMeal: Meal): void {
+    this.selectedMeal = clickedMeal;
+  }
 }
