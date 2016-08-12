@@ -6,6 +6,8 @@ h1 {
   color: green;
 }
 
-.edit-meal {
-
+.edit-meal,
+.add-meal {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
