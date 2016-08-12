@@ -12,19 +12,17 @@ import { NewMealComponent } from './new-meal.component';
   directives: [MealComponent, EditMealComponent, NewMealComponent],
   pipes: [CaloriesPipe],
   template: `
-    <div class="">
-      <select (change)="onCaloriesChange($event.target.value)">
-        <option value="all">View All Meals</option>
-        <option value="high">View High Calories Meals</option>
-        <option value="low">View Low Calories Meals</option>
-      </select>
-      <meal-display *ngFor="#currentMeal of mealList | calories:caloriesFilter"
-        [meal]="currentMeal" (click)="mealClicked(currentMeal)"
-        [class.selected]="currentMeal === selectedMeal">
-      </meal-display>
-      <edit-meal *ngIf="selectedMeal" [meal]="selectedMeal"></edit-meal>
-      <new-meal (onSubmitNewMeal)="createMeal($event)"></new-meal>
-    </div>
+    <select (change)="onCaloriesChange($event.target.value)">
+      <option value="all">View All Meals</option>
+      <option value="high">View High Calories Meals</option>
+      <option value="low">View Low Calories Meals</option>
+    </select>
+    <meal-display *ngFor="#currentMeal of mealList | calories:caloriesFilter"
+      [meal]="currentMeal" (click)="mealClicked(currentMeal)"
+      [class.selected]="currentMeal === selectedMeal">
+    </meal-display>
+    <edit-meal *ngIf="selectedMeal" [meal]="selectedMeal"></edit-meal>
+    <new-meal (onSubmitNewMeal)="createMeal($event)"></new-meal>
   `
 })
 
@@ -49,7 +47,7 @@ export class MealListComponent {
 
   createMeal(newMeal: string[]): void {
     this.mealList.push(
-      new Meal(newMeal[0], newMeal[1], parseInt(newMeal[2], this.mealList.length))
+      new Meal(newMeal[0], newMeal[1], parseInt(newMeal[2]), this.mealList.length)
     );
   }
 }
